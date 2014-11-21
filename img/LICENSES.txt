@@ -1,0 +1,1 @@
+pygame.png : http://www.pygame.org, under fair use
