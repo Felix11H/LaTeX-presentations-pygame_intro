@@ -10,7 +10,7 @@
 
 
 %\documentclass{beamer}
-\documentclass[]{beamer}   %uncomment for handout
+\documentclass[handout]{beamer}   %uncomment for handout
 \usetheme{default}
 
 \usepackage{comment}
@@ -18,8 +18,22 @@
 \usepackage{underscore}
 \usepackage{hyperref}
 
-\usepackage{minted}
+\hypersetup{%
+  colorlinks=true,% hyperlinks will be coloured
+  urlcolor=blue,
+}
+\makeatletter
+\DeclareUrlCommand\ULurl@@{%
+  \def\UrlFont{\ttfamily\color{blue}}%
+  \def\UrlLeft{\uline\bgroup}%
+  \def\UrlRight{\egroup}}
+\def\ULurl@#1{\hyper@linkurl{\ULurl@@{#1}}{#1}}
+\DeclareRobustCommand*\ULurl{\hyper@normalise\ULurl@}
+\makeatother
 
+
+\useinnertheme{default}
+\beamertemplatenavigationsymbolsempty
 
 % ----------------------- fonts ------------------------ %
 
@@ -31,6 +45,7 @@
 
 % ----------------------- minted ----------------------- %
 
+\usepackage{minted}
 
 \newminted{python}{fontsize=\scriptsize, 
                    linenos,
@@ -78,8 +93,72 @@
 
 %----------- titlepage ----------------------------------------------%
 
-\begin{frame}[plain]
-  \titlepage
+\begin{frame}[fragile]
+  % 
+  \begin{center} 
+    \LARGE \textbf{Introduction to} \includegraphics[width=3.5cm]{img/pygame.png}
+  \end{center}
+  
+  \vspace{0.45cm}
+
+  \begin{columns}[t]
+    %%%%
+    \begin{column}{0.44\textwidth}        
+      \textbf{Presented by}
+      \normalsize
+      \vspace{0.18cm}
+      \begin{itemize}%[leftmargin=0.6cm]
+        \setlength{\itemindent}{-0.3cm}
+        \item[] Felix Hoffmann
+        \item[] @Felix11H
+        \item[] \href{http://felix11h.github.io/}{felix11h.github.io/}
+      \end{itemize}
+
+      \vspace{0.38cm}
+      \textbf{Slides}
+      \normalsize
+      \vspace{0.18cm}
+      \begin{itemize}%[leftmargin=0.6cm]
+        \setlength{\itemindent}{-0.3cm}
+        \item[] Slideshare: %
+          \href{http://tiny.cc/pyg-into}{tiny.cc/pyg-into}
+        \item[] Source: \\%
+          \href{http://tiny.cc/pyg-into-github}{tiny.cc/pyg-into-github}
+      \end{itemize}
+    \end{column}
+    %%%% 
+    \begin{column}{0.61\textwidth}
+      \textbf{References}
+      \vspace{0.28cm}
+      \normalsize 
+      \begin{itemize}%[leftmargin=0.6cm]
+        \itemsep9pt
+        \item[-] Pygame website: \href{http://pygame.org}{pygame.org}
+        \item[-] Richard Jones' Pygame lecture: \\
+          \textcolor{white}{-} 
+          recording on \href{%
+            https://www.youtube.com/watch?v=mTmJfWdZzbo}{Youtube}\\
+          \textcolor{white}{-} code samples on \href{%
+            https://bitbucket.org/r1chardj0n3s/pygame-tutorial/src}{Bitbucket}
+        \item[-] List of keys: \href{http://www.pygame.org/docs/ref/key.html}{pygame.org/docs/ref/key.html}
+
+      \end{itemize}
+    \end{column}
+    %%%%
+  \end{columns}
+
+  \vspace{0.18cm}
+
+  \begin{center}
+    \includegraphics[width=1.7cm]{img/ccby40.png}
+
+    \vspace{0.1cm}
+
+    \scriptsize This work is licensed under a
+    \href{https://creativecommons.org/licenses/by/4.0/}{Creative
+      Commons Attribution 4.0 International License.}
+  \end{center}
+
 \end{frame}
 
 
@@ -1127,30 +1206,74 @@ to test if the given sprite intersects with any sprites in a Group
 %---------------------------------------------------------------------
 
 
-\begin{frame}
-\frametitle{Final slide}
+\begin{frame}[fragile]
+  % 
+  \begin{center} 
+    \huge \textit{Have fun
+      with} \includegraphics[width=3.5cm]{img/pygame.png} \textit{!}
+  \end{center}
+  
+  \vspace{0.45cm}
 
-Pygame's documentation: 
-\begin{center}
-\url{http://www.pygame.org/docs/}
-\end{center}
-\vspace{0.8cm}
-Richard Jones - Introduction to Pygame:
-\medskip
-\begin{itemize}
-\item[] video:
-\begin{center}
-\footnotesize\url{http://www.youtube.com/watch?v=mTmJfWdZzbo}
-\end{center}
-\item[] code samples: 
-\begin{center}
-\footnotesize\url{https://bitbucket.org/r1chardj0n3s/pygame-tutorial/src}
-\end{center}
-\end{itemize}
-\vspace{0.8cm}
-Happy Holidays! :)
+  \begin{columns}[t]
+    %%%%
+    \begin{column}{0.44\textwidth}        
+      \textbf{Presented by}
+      \normalsize
+      \vspace{0.18cm}
+      \begin{itemize}%[leftmargin=0.6cm]
+        \setlength{\itemindent}{-0.3cm}
+        \item[] Felix Hoffmann
+        \item[] @Felix11H
+        \item[] \href{http://felix11h.github.io/}{felix11h.github.io/}
+      \end{itemize}
+
+      \vspace{0.38cm}
+      \textbf{Slides}
+      \normalsize
+      \vspace{0.18cm}
+      \begin{itemize}%[leftmargin=0.6cm]
+        \setlength{\itemindent}{-0.3cm}
+        \item[] Slideshare: %
+          \href{http://tiny.cc/pyg-into}{tiny.cc/pyg-into}
+        \item[] Source: \\%
+          \href{http://tiny.cc/pyg-into-github}{tiny.cc/pyg-into-github}
+      \end{itemize}
+    \end{column}
+    %%%% 
+    \begin{column}{0.61\textwidth}
+      \textbf{References}
+      \vspace{0.28cm}
+      \normalsize 
+      \begin{itemize}%[leftmargin=0.6cm]
+        \itemsep9pt
+        \item[-] Pygame website: \href{http://pygame.org}{pygame.org}
+        \item[-] Richard Jones' Pygame lecture: \\
+          \textcolor{white}{-} 
+          recording on \href{%
+            https://www.youtube.com/watch?v=mTmJfWdZzbo}{Youtube}\\
+          \textcolor{white}{-} code samples on \href{%
+            https://bitbucket.org/r1chardj0n3s/pygame-tutorial/src}{Bitbucket}
+        \item[-] List of keys: \href{http://www.pygame.org/docs/ref/key.html}{pygame.org/docs/ref/key.html}
+
+      \end{itemize}
+    \end{column}
+    %%%%
+  \end{columns}
+
+  \vspace{0.18cm}
+
+  \begin{center}
+    \includegraphics[width=1.7cm]{img/ccby40.png}
+
+    \vspace{0.1cm}
+
+    \scriptsize This work is licensed under a
+    \href{https://creativecommons.org/licenses/by/4.0/}{Creative
+      Commons Attribution 4.0 International License.}
+  \end{center}
+
 \end{frame}
-
 
 %---------------------------------------------------------------------
 
